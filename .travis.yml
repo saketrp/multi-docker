@@ -1,4 +1,5 @@
 sudo: required
+
 services:
   - docker
 
@@ -15,7 +16,6 @@ after_success:
   - docker build -t saketrp/multi-nginx ./nginx
   #login to docker
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
   #Take these images and push them to docker hub
   docker push saketrp/multi-client
   docker push saketrp/multi-server
